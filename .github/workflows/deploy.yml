@@ -21,10 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
 
-      - name: Create virtual environment (recommended)
-        run: |
-          poetry env use python3.11  # Assuming poetry.toml uses this version
-          # If using a different virtual environment manager, adapt accordingly
+      # No need for poetry env use as pyproject.toml likely defines dependencies
 
       - name: Install project dependencies
         run: |
@@ -32,7 +29,8 @@ jobs:
 
       - name: Build and test (optional)
         run: |
-          poetry run test  # Assuming poetry.toml defines a test command
+          # Assuming poetry.toml defines test command
+          poetry run test
 
       - name: Create .env file securely  # Assuming GitHub Secrets are configured
         run: |
