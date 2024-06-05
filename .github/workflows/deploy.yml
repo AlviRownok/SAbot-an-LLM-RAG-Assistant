@@ -27,14 +27,16 @@ jobs:
         run: |
           poetry install
 
-      # Removed the optional Build and test step (if applicable)
-
       - name: Create .env file securely  # Assuming GitHub Secrets are configured
         run: |
           echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > SA_Bot\sabot\.env
 
-      - name: Deploy to Streamlit (addressing execution order)
+      - name: Run SAbot.py (assuming setup tasks)
         run: |
-          poetry run SA_Bot\sabot\SAbot.py && poetry run streamlit run SA_Bot\sabot\Visual.py
+          poetry run python SA_Bot\sabot\SAbot.py
+
+      - name: Deploy to Streamlit with Visual.py
+        run: |
+          poetry run streamlit run SA_Bot\sabot\Visual.py
           # Consider using environment variables for configurations:
           # poetry run streamlit run SA_Bot\sabot\Visual.py --server.port $PORT
