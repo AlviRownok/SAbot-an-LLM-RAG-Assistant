@@ -22,9 +22,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
 
-      - name: Install project dependencies
+      - name: Install project dependencies without installing the current project
         run: |
-          poetry install
+          poetry install --no-root
 
       - name: Create .env file securely
         run: |
@@ -36,7 +36,7 @@ jobs:
 
       - name: Debug Environment Variables
         run: |
-          echo $env:OPENAI_API_KEY
+          echo "OPENAI_API_KEY: $env:OPENAI_API_KEY"
           poetry run streamlit config show
 
       - name: Deploy to Streamlit with Visual.py
