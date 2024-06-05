@@ -8,35 +8,37 @@ on:
 jobs:
   build_and_deploy:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python (using Node.js 20)
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'  # Maintain Python version for your project
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install poetry
 
-      # No need for poetry env use as pyproject.toml likely defines dependencies
-
       - name: Install project dependencies
         run: |
           poetry install
 
-      - name: Create .env file securely  # Assuming GitHub Secrets are configured
+      - name: Create .env file securely
         run: |
           echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > SA_Bot\sabot\.env
 
-      - name: Run SAbot.py (assuming setup tasks)
+      - name: Run SAbot.py (setup tasks)
         run: |
           poetry run python SA_Bot\sabot\SAbot.py
+
+      - name: Debug Environment Variables
+        run: |
+          echo $env:OPENAI_API_KEY
+          poetry run streamlit config show
 
       - name: Deploy to Streamlit with Visual.py
         run: |
           poetry run streamlit run SA_Bot\sabot\Visual.py
-          # Consider using environment variables for configurations:
-          # poetry run streamlit run SA_Bot\sabot\Visual.py --server.port $PORT
