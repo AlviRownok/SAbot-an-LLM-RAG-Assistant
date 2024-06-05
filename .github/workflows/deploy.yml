@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -26,9 +26,9 @@ jobs:
 
       - name: Create .env file
         run: |
-          mkdir -p SA_Bot/sabot
-          echo "OPENAI_API_KEY=$secrets.OPENAI_API_KEY" > SA_Bot/sabot/.env
+          New-Item -ItemType Directory -Force -Path SA_Bot\sabot
+          echo "OPENAI_API_KEY=$ secrets.OPENAI_API_KEY " > SA_Bot\sabot\.env
 
       - name: Deploy to Streamlit
         run: |
-          streamlit run SA_Bot/sabot/Visual.py
+          streamlit run SA_Bot\sabot\Visual.py
