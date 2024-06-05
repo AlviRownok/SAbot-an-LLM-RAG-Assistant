@@ -11,10 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python (using Node.js 20)
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.11'  # Maintain Python version for your project
 
       - name: Install dependencies
         run: |
@@ -34,7 +34,7 @@ jobs:
         run: |
           poetry run test  # Assuming poetry.toml defines a test command
 
-      - name: Create .env file securely
+      - name: Create .env file securely  # Assuming GitHub Secrets are configured
         run: |
           echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > SA_Bot\sabot\.env
 
