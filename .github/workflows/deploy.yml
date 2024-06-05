@@ -27,7 +27,7 @@ jobs:
       - name: Create .env file
         run: |
           mkdir -p SA_Bot/sabot
-          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > SA_Bot/sabot/.env
+          echo "OPENAI_API_KEY=$secrets.OPENAI_API_KEY" > SA_Bot/sabot/.env
 
       - name: Deploy to Streamlit
         run: |
