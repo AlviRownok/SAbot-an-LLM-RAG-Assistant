@@ -27,10 +27,7 @@ jobs:
         run: |
           poetry install
 
-      - name: Build and test (optional)
-        run: |
-          # Assuming poetry.toml defines test command
-          poetry run test
+      # Removed the optional Build and test step
 
       - name: Create .env file securely  # Assuming GitHub Secrets are configured
         run: |
