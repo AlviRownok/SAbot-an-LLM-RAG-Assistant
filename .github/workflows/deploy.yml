@@ -28,7 +28,8 @@ jobs:
 
       - name: Create .env file securely
         run: |
-          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > SA_Bot\sabot\.env
+          New-Item -ItemType Directory -Force -Path SA_Bot\sabot
+          Add-Content SA_Bot\sabot\.env "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
 
       - name: Run SAbot.py (setup tasks)
         run: |
@@ -36,9 +37,9 @@ jobs:
 
       - name: Debug Environment Variables
         run: |
-          echo "OPENAI_API_KEY: $env:OPENAI_API_KEY"
+          Get-Content SA_Bot\sabot\.env
           poetry run streamlit config show
 
       - name: Deploy to Streamlit with Visual.py
         run: |
-          poetry run streamlit run SA_Bot\sabot\Visual.py
+          poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true
