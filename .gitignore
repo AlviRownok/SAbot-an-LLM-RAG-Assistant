@@ -2,4 +2,5 @@
 __pycache__/
 .env
 *.pyc
-.DS_Store
+.DS_Store"SA_Bot/sabot/.env" 
+"SA_Bot/evaluation/.env" 
