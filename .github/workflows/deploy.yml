@@ -37,9 +37,18 @@ jobs:
 
       - name: Debug Environment Variables
         run: |
-          Get-Content SA_Bot\sabot\.env
+          echo "OPENAI_API_KEY: $env:OPENAI_API_KEY"
           poetry run streamlit config show
 
-      - name: Deploy to Streamlit with Visual.py
+      - name: Start Streamlit in background
         run: |
-          poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true
+          Start-Process powershell -ArgumentList 'poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true' -NoNewWindow
+
+      - name: Check Streamlit URL
+        run: |
+          Start-Sleep -Seconds 600  # Sleep for 10 minutes (600 seconds)
+          curl -I http://localhost:8501
+
+      - name: Stop Streamlit
+        run: |
+          Get-Process -Name streamlit | Stop-Process
