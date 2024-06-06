@@ -31,29 +31,39 @@ jobs:
           poetry install --no-root
 
       - name: Create .env file securely
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          HUGGINGFACE_API_KEY: ${{ secrets.HUGGINGFACE_API_KEY }}
         run: |
           New-Item -ItemType Directory -Force -Path SA_Bot\sabot
           Add-Content SA_Bot\sabot\.env "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
           Add-Content SA_Bot\sabot\.env "HUGGINGFACE_API_KEY=${{ secrets.HUGGINGFACE_API_KEY }}"
 
-      - name: Run SAbot.py (setup tasks)
-        run: |
-          poetry run python SA_Bot\sabot\SAbot.py
-
-      - name: Debug Environment Variables
+      - name: Verify Environment Variables
         run: |
           echo "OPENAI_API_KEY: $env:OPENAI_API_KEY"
           echo "HUGGINGFACE_API_KEY: $env:HUGGINGFACE_API_KEY"
-          poetry run streamlit config show
+
+      - name: Run SAbot.py (setup tasks)
+        run: |
+          poetry run python SA_Bot\sabot\SAbot.py
 
       - name: Start Streamlit in background
         run: |
           Start-Process powershell -ArgumentList 'poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true' -NoNewWindow
 
+      - name: List Running Processes
+        run: |
+          Get-Process
+
       - name: Wait for 5 minutes
         run: |
           Start-Sleep -Seconds 300  # Sleep for 5 minutes (300 seconds)
 
+      - name: List Running Processes After Sleep
+        run: |
+          Get-Process
+
       - name: Stop Streamlit
         run: |
-          Get-Process -Name streamlit | Stop-Process
+          Get-Process -Name streamlit -ErrorAction SilentlyContinue | Stop-Process
