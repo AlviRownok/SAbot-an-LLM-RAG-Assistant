@@ -75,14 +75,14 @@ The following files are used to evaluate different parameters and models in the 
 
 The following images are available in the repository to visualize the evaluation results:
 
-* Figure_1.png
-* Figure_2.png
-* Temp vs Response length.png
-* Temp vs Response length 2.png
-* Temp vs Response length 3.png
-* Temp vs Response length 4.png
-* Temp vs Response length 5.png
-* Time for text splitting.png
+* ![Figure_1.png](Figure_1.png)
+* ![Figure_2.png](Figure_2.png)
+* ![Temp vs Response length.png](Temp vs Response length.png)
+* ![Temp vs Response length 2.png](Temp vs Response length 2.png)
+* ![Temp vs Response length 3.png](Temp vs Response length 3.png)
+* ![Temp vs Response length 4.png](Temp vs Response length 4.png)
+* ![Temp vs Response length 5.png](Temp vs Response length 5.png)
+* ![Time for text splitting.png](Time for text splitting.png)
 
 These images can be found in the project repository.
 
