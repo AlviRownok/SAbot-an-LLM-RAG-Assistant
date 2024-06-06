@@ -1,6 +1,6 @@
 ## SA_Bot
 
-This is the SA_Bot project developed by Alvi Rownok and SANDEEP UMASHANKAR PANDEY.
+This is the SA_Bot project developed by Alvi Rownok and Sandeep Umashankar Pandey.
 
 ## Project Structure
 
