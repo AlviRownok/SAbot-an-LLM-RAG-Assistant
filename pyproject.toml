@@ -16,7 +16,7 @@ numpy = "^1.26.4"
 streamlit = "^1.35.0"
 faiss-cpu = "^1.8.0"
 langchain-community = "^0.2.1"
-
+sentence-transformers = "^2.2.2"  # Add this line
 
 [build-system]
 requires = ["poetry-core"]
