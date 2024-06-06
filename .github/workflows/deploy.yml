@@ -50,17 +50,13 @@ jobs:
 
       - name: Start Streamlit in background
         run: |
-          Start-Process powershell -ArgumentList 'poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true' -NoNewWindow
+          poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true &
+      
+      - name: Wait for 2 minutes
+        run: |
+          Start-Sleep -Seconds 120  # Sleep for 2 minutes (120 seconds)
 
       - name: List Running Processes
-        run: |
-          Get-Process
-
-      - name: Wait for 5 minutes
-        run: |
-          Start-Sleep -Seconds 300  # Sleep for 5 minutes (300 seconds)
-
-      - name: List Running Processes After Sleep
         run: |
           Get-Process
 
