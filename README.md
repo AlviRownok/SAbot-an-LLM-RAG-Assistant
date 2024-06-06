@@ -75,7 +75,7 @@ The following files are used to evaluate different parameters and models in the 
 
 The following images are available in the repository to visualize the evaluation results:
 
-* ![Temp vs Response length.png](Temp_vs_Response_length.png)
+* ![Temp vs Response length.png](Temp_vs_Response_length.png style="width: 50px; height: 50px;")
 * ![Temp vs Response length 2.png](Temp_vs_Response_length_2.png)
 * ![Temp vs Response length 3.png](Temp_vs_Response_length_3.png)
 * ![Temp vs Response length 4.png](Temp_vs_Response_length_4.png)
