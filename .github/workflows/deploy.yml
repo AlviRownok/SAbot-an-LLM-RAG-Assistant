@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest  # Use ubuntu-latest for compatibility
 
     steps:
       - name: Checkout repository
@@ -32,25 +32,14 @@ jobs:
           poetry export -f requirements.txt --output requirements.txt --without-hashes
 
       - name: Set up environment variables
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          HUGGINGFACE_API_KEY: ${{ secrets.HUGGINGFACE_API_KEY }}
         run: |
           echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > .env
           echo "HUGGINGFACE_API_KEY=${{ secrets.HUGGINGFACE_API_KEY }}" >> .env
 
       - name: Run SAbot.py (setup tasks)
         run: |
-          poetry run python SA_Bot\sabot\SAbot.py
+          poetry run python SA_Bot/sabot/SAbot.py
 
-      - name: Start Streamlit in background
+      - name: Deploy to Streamlit Sharing
         run: |
-          Start-Process -FilePath "powershell" -ArgumentList "poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true" -NoNewWindow
-
-      - name: Wait for 5 minutes
-        run: |
-          Start-Sleep -Seconds 300
-
-      - name: Stop Streamlit
-        run: |
-          Get-Process -Name streamlit -ErrorAction SilentlyContinue | Stop-Process
+          poetry run streamlit run SA_Bot/sabot/Visual.py --server.headless true
