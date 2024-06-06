@@ -17,10 +17,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Poetry
         run: |
           python -m pip install --upgrade pip
           pip install poetry
+
+      - name: Update poetry.lock if necessary
+        run: |
+          poetry lock --no-update
 
       - name: Install project dependencies without installing the current project
         run: |
