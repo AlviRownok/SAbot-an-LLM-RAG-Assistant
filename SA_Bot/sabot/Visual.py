@@ -18,8 +18,8 @@ def get_img_as_base64(file):
         data = f.read()
     return base64.b64encode(data).decode()
 
-background_image_path = "C:/Users/sande/Desktop/SA_Bot/UI background.jpg" #must update with your path
-icon_image_path = "C:/Users/sande/Desktop/SA_Bot/robotic_icon.gif" #must update with your path
+background_image_path = "UI background.jpg" #must update with your path
+icon_image_path = "robotic_icon.gif" #must update with your path
 
 FILES_DIR = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "files"))
 os.makedirs(FILES_DIR, exist_ok=True)
