@@ -69,6 +69,7 @@ pydantic-core==2.18.3 ; python_full_version >= "3.11.9" and python_version < "4.
 pydantic==2.7.2 ; python_full_version >= "3.11.9" and python_version < "4.0"
 pydeck==0.9.1 ; python_full_version >= "3.11.9" and python_version < "4.0"
 pygments==2.18.0 ; python_full_version >= "3.11.9" and python_version < "4.0"
+pypdf==3.17.4 ; python_full_version >= "3.11.9" and python_version < "4.0"
 python-dateutil==2.9.0.post0 ; python_full_version >= "3.11.9" and python_version < "4.0"
 python-dotenv==1.0.1 ; python_full_version >= "3.11.9" and python_version < "4.0"
 pytz==2024.1 ; python_full_version >= "3.11.9" and python_version < "4.0"

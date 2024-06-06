@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # Use ubuntu-latest for compatibility
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -40,6 +40,14 @@ jobs:
         run: |
           poetry run python SA_Bot/sabot/SAbot.py
 
-      - name: Deploy to Streamlit Sharing
+      - name: Start Streamlit in background
         run: |
-          poetry run streamlit run SA_Bot/sabot/Visual.py --server.headless true
+          nohup poetry run streamlit run SA_Bot/sabot/Visual.py --server.headless true &
+
+      - name: Wait for 10 minutes
+        run: |
+          sleep 600
+
+      - name: Stop Streamlit
+        run: |
+          pkill -f streamlit

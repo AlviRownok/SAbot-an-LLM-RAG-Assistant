@@ -17,6 +17,7 @@ streamlit = "^1.35.0"
 faiss-cpu = "^1.8.0"
 langchain-community = "^0.2.1"
 sentence-transformers = "^2.2.2"
+pypdf = "^3.3.0"  # Add this line
 
 [build-system]
 requires = ["poetry-core"]
