@@ -95,5 +95,6 @@ These images can be found in the project repository.
 * Create your separate branch
 * Commit changes and upgrades to your branch
 * If you don't have the API keys contact: alvi2241998@gmail.com for guidance
-* Please submit pull requests for any changes from your branch to main
+* Please submit pull requests for any changes from main to your local device or branch
+* Avoid merging directly your push requests from branch to main
 * Ensure code is properly documented and tested
