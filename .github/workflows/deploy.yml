@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11.9'  # Ensure Python 3.11.9 or later
+          python-version: '3.11.9'
 
       - name: Install Poetry
         run: |
