@@ -80,6 +80,16 @@ The following images are available in the repository to visualize the evaluation
 
 These images can be found in the project repository.
 
+* Performance of Sentence Transformer Models for Selection:
+
+| Model                                | Embedding Quality | Inference Speed | Model Size | Resource Utilization (CPU, Memory) |
+|--------------------------------------|-------------------|-----------------|------------|------------------------------------|
+| all-MiniLM-L12-v2                    | 0.837595          | 4.648678        | 127.258301 | (20.3828125, 30.8)                 |
+| distilbert-base-nli-stsb-mean-tokens | 0.842519          | 5.466628        | 253.154297 | (34.75390625, 58.3)                |
+| bert-base-nli-mean-tokens            | 0.741453          | 11.453929       | 417.641602 | (23.87890625, 35.8)                |
+| all-MiniLM-L6-v2                     | 0.827406          | 2.355793        | 86.644043  | (20.3671875, 46.7)                 |
+
+
 ## Contribution Guidelines
 
 * Please submit pull requests for any changes.
