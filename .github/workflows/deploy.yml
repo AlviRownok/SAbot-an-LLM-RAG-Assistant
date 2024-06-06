@@ -46,14 +46,9 @@ jobs:
         run: |
           Start-Process powershell -ArgumentList 'poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true' -NoNewWindow
 
-      - name: List Running Processes (Debugging)
+      - name: Wait for 5 minutes
         run: |
-          Get-Process
-
-      - name: Check Streamlit URL
-        run: |
-          Start-Sleep -Seconds 1200  # Sleep for 20 minutes (1200 seconds)
-          curl -I http://localhost:8501
+          Start-Sleep -Seconds 300  # Sleep for 5 minutes (300 seconds)
 
       - name: Stop Streamlit
         run: |
