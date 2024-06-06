@@ -75,12 +75,8 @@ The following files are used to evaluate different parameters and models in the 
 
 The following images are available in the repository to visualize the evaluation results:
 
-* <img src="Temp_vs_Response_length.png" alt="Temp vs Response length" style="width:100px; height:100px;">
-* <img src="Temp_vs_Response_length_2.png" alt="Temp vs Response length 2" style="width:100px; height:100px;">
-* <img src="Temp_vs_Response_length_3.png" alt="Temp vs Response length 3" style="width:100px; height:100px;">
-* <img src="Temp_vs_Response_length_4.png" alt="Temp vs Response length 4" style="width:100px; height:100px;">
-* <img src="Temp_vs_Response_length_5.png" alt="Temp vs Response length 5" style="width:100px; height:100px;">
-* <img src="Time_for_text_splitting.png" alt="Time for text splitting" style="width:100px; height:100px;">
+* <img src="Temp_vs_Response_length.png" alt="Temp vs Response length" style="width:100px; height:100px;"> <img src="Temp_vs_Response_length_2.png" alt="Temp vs Response length 2" style="width:100px; height:100px;"> <img src="Temp_vs_Response_length_3.png" alt="Temp vs Response length 3" style="width:100px; height:100px;">
+* <img src="Temp_vs_Response_length_4.png" alt="Temp vs Response length 4" style="width:100px; height:100px;"> <img src="Temp_vs_Response_length_5.png" alt="Temp vs Response length 5" style="width:100px; height:100px;"> <img src="Time_for_text_splitting.png" alt="Time for text splitting" style="width:100px; height:100px;">
 
 These images can be found in the project repository.
 
