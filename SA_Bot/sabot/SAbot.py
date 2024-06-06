@@ -15,9 +15,17 @@ class sabot:
     def __init__(self):
         load_dotenv()
         self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+        self.HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+        
         self.client = OpenAI(api_key=self.OPENAI_API_KEY)
-        self.encoder = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L12-v2', model_kwargs={'device': "cpu"})
-        self.tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L12-v2")
+        self.encoder = HuggingFaceEmbeddings(
+            model_name='sentence-transformers/all-MiniLM-L12-v2', 
+            model_kwargs={'device': "cpu", 'use_auth_token': self.HUGGINGFACE_API_KEY}
+        )
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            "sentence-transformers/all-MiniLM-L12-v2",
+            use_auth_token=self.HUGGINGFACE_API_KEY
+        )
         self.vector_db = None  # Initialize vector_db as None
 
     def generate(self, question: str, context: str = None, temperature: float = 0.2, max_tokens: int = 400):

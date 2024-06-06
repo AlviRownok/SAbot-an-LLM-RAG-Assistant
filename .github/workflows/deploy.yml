@@ -30,6 +30,7 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force -Path SA_Bot\sabot
           Add-Content SA_Bot\sabot\.env "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
+          Add-Content SA_Bot\sabot\.env "HUGGINGFACE_API_KEY=${{ secrets.HUGGINGFACE_API_KEY }}"
 
       - name: Run SAbot.py (setup tasks)
         run: |
@@ -38,15 +39,20 @@ jobs:
       - name: Debug Environment Variables
         run: |
           echo "OPENAI_API_KEY: $env:OPENAI_API_KEY"
+          echo "HUGGINGFACE_API_KEY: $env:HUGGINGFACE_API_KEY"
           poetry run streamlit config show
 
       - name: Start Streamlit in background
         run: |
           Start-Process powershell -ArgumentList 'poetry run streamlit run SA_Bot\sabot\Visual.py --server.headless true' -NoNewWindow
 
+      - name: List Running Processes (Debugging)
+        run: |
+          Get-Process
+
       - name: Check Streamlit URL
         run: |
-          Start-Sleep -Seconds 600  # Sleep for 10 minutes (600 seconds)
+          Start-Sleep -Seconds 1200  # Sleep for 20 minutes (1200 seconds)
           curl -I http://localhost:8501
 
       - name: Stop Streamlit
