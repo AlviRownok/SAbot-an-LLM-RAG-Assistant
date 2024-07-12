@@ -60,8 +60,7 @@ poetry run streamlit run Visual.py
 ## Live Demo (Limited Time)
 
 You can experience a live demo of the chatbot at the following link: [https://sabot-an-llm-rag-assistant.streamlit.app/](https://sabot-an-llm-rag-assistant.streamlit.app/)
-
-**Please note:** The live demo will be available only until June 15, 2024, after which it will be closed.
+Model Used: Chatgpt 3.5 Turbo
 
 ## Evaluation and Testing
 
