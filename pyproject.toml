@@ -3,7 +3,7 @@ name = "sabot-project"
 version = "1.0.1"
 description = "SAbot Assistant with Streamlit"
 authors = ["Yes"]
-license = "Sandeep Pandey"
+license = "Alvi Rownok"
 readme = "README.md"
 
 [tool.poetry.dependencies]
