@@ -41,7 +41,7 @@ class sabot:
             ]
 
         response = self.client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-3.5-turbo", #gpt-4o changed
             messages=messages,
             max_tokens=max_tokens,
             n=1,
